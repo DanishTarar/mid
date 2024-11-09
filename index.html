@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <title>Air University, Islamabad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .upper {
+            height: 50px;
+            background-image: linear-gradient(black, white);
+        }
+
+        .navbar {
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        }
+
+        .navbar,
+        .sub-navbar {
+            color: white;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            background: transparent;
+            width: 100%;
+            font-weight: bolder;
+        }
+
+        .navbar a,
+        .sub-navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: inline-block;
+        }
+
+        .navbar a:hover,
+        .sub-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 100vh;
+            background-image: url('https://au.edu.pk/Pages/About/About_Images/visitau.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 72px;
+            font-weight: bold;
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        }
+
+        .explore {
+            background-color: #8C1515;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        .explore:hover {
+            background-color: #7A1313;
+        }
+
+        .sticky-navbar {
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .sticky-sub-navbar {
+            position: fixed;
+            top: 50px;
+            z-index: 999;
+        }
+
+        .mission {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            color: black;
+        }
+
+        .news-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .news-subtitle {
+            font-size: 1.25rem;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+
+        .news-card {
+            border: none;
+            border-radius: 0;
+            height: 100%;
+        }
+
+        .news-card img {
+            border-radius: 0;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-category {
+            font-size: 0.875rem;
+            font-weight: bold;
+            color: #6c757d;
+            text-transform: uppercase;
+        }
+
+        .news-title-card {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .row-equal>[class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row-equal .card {
+            flex: 1;
+        }
+
+        .research-section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-section-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .research-info-box {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .research-info-box h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .research-info-box p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .research-btn-custom {
+            background-color: #7A1313;
+            color: white;
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.25rem;
+        }
+
+        .research-btn-custom:hover {
+            background-color: #6b1111;
+        }
+
+        .health-section-title {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        .health-section-title h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .health-section-title p {
+            font-size: 1.25rem;
+            color: #555;
+        }
+
+        .health-card {
+            border: none;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .health-card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .health-card-text {
+            font-size: 1rem;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        .health-card-link {
+            font-size: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .health-card-link:hover {
+            text-decoration: underline;
+        }
+
+        .health-btn-custom {
+            background-color: #7A1313;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            display: block;
+            margin: 30px auto;
+            text-decoration: none;
+            width: max-content;
+        }
+
+        .health-btn-custom:hover {
+            background-color: #6b1111;
+        }
+
+        .admission-header {
+            margin-bottom: 20px;
+        }
+
+        .admission-header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .admission-header p {
+            font-size: 1.25rem;
+            color: #555;
+        }
+
+        .admission-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .admission-content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .admission-info {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .admission-info div {
+            width: 48%;
+            margin-bottom: 20px;
+        }
+
+        .admission-info h5 {
+            font-weight: bold;
+        }
+
+        .admission-info p {
+            color: #555;
+        }
+
+        .btn-admission {
+            background-color: #7A1313;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+        }
+
+        .footer i {
+            margin: 0 5px;
+            color: #000;
+        }
+
+        .footer-img {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .footer-img img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .menu-section {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .menu-section h5 {
+            color: #800000;
+            font-weight: bold;
+        }
+
+        .menu-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu-section ul li {
+            margin-bottom: 5px;
+        }
+
+        .menu-section ul li:hover {
+            text-decoration: underline;
+        }
+
+        .button-section {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .button-section button {
+            border: 1px solid #000;
+            background-color: #fff;
+            padding: 10px;
+            text-align: left;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button-section button:hover {
+            background-color: #800000;
+            color: white;
+        }
+
+        .line {
+            align-items: stretch;
+        }
+
+        .end {
+            background-color: #8C1515;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .end a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        .end a:hover {
+            text-decoration: underline;
+        }
+
+        .end .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .end .container .left h1 {
+            font-size: 24px;
+            margin: 0;
+            margin-right: 15px;
+        }
+
+        .end .container .left h1 span {
+            display: block;
+            font-size: 16px;
+        }
+
+        .end .container .right {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .end .container .right a {
+            margin-bottom: 10px;
+        }
+
+        .end .container {
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .hover-effect:hover .quote-container {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 36px; /* Adjust font size for smaller screens */
+            }
+            .hero-text {
+        font-size: 36px; /* Adjust font size for smaller screens */
+    }
+
+    .navbar a, .sub-navbar a {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+            .news-title {
+                font-size: 1.5rem; /* Adjust font size for smaller screens */
+            }
+
+            .news-subtitle {
+                font-size: 1rem; /* Adjust font size for smaller screens */
+            }
+
+            .research-section-title {
+                font-size: 2rem; /* Adjust font size for smaller screens */
+            }
+
+            .research-section-subtitle {
+                font-size: 1rem; /* Adjust font size for smaller screens */
+            }
+
+            .health-section-title h1 {
+                font-size: 2rem; /* Adjust font size for smaller screens */
+            }
+
+            .health-section-title p {
+                font-size: 1rem; /* Adjust font size for smaller screens */
+            }
+
+            .admission-header h1 {
+                font-size: 2rem; /* Adjust font size for smaller screens */
+            }
+
+            .admission-header p {
+                font-size: 1rem; /* Adjust font size for smaller screens */
+            }
+
+            .footer-icons {
+                flex-direction: column; /* Stack footer icons vertically on smaller screens */
+                align-items: center;
+            }
+
+            .menu-section {
+                width: 100%; /* Make menu sections full width on smaller screens */
+            }
+
+            .admission-info {
+                flex-direction: column; /* Stack admission info vertically on smaller screens */
+                align-items: center;
+            }
+
+            .admission-info div {
+                width: 100%; /* Make admission info divs full width on smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="navbar sticky-navbar d-flex justify-content-between align-items-center flex-wrap">
+            <div class="ms-3">
+                <a href="#" class="navbar-brand">Air University</a>
+            </div>
+            <div class="me-3 d-flex flex-wrap">
+                <a href="#" class="nav-link">Information for:</a>
+                <a href="#" class="nav-link">Students</a>
+                <a href="#" class="nav-link">Faculty & Staff</a>
+                <a href="#" class="nav-link">Families</a>
+                <a href="#" class="nav-link">Visitors</a>
+                <a href="#" class="nav-link">Alumni</a>
+                <a href="#" class="nav-link"><i class="fas fa-search"></i> Search</a>
+            </div>
+        </div>
+        <div class="sub-navbar sticky-sub-navbar d-flex justify-content-center flex-wrap">
+            <a href="#news" class="nav-link">News</a>
+            <a href="#events" class="nav-link">Events</a>
+            <a href="#academics" class="nav-link">Academics</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#health" class="nav-link">Health Care</a>
+            <a href="#life" class="nav-link">Campus Life</a>
+            <a href="#admission" class="nav-link">Admission</a>
+            <a href="#about" class="nav-link">About</a>
+        </div>
+        <div class="hero-text">Air University</div>
+    </section>
+    <div class="explore">
+        Explore Air
+    </div>
+
+    <section>
+        <div>
+            <div class="mission mt-5">
+                <h1 class="text-center">A Societal Mission</h1>
+                <p class="ms-5">Air was founded almost 150 years ago on a bedrock of societal purpose. Our mission is to contribute to the world by educating students for lives of leadership and contribution with integrity; advancing fundamental knowledge and cultivating creativity; leading in pioneering research for effective clinical therapies; and accelerating solutions Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, dicta suscipit nihil adipisci aut fugiat assumenda, dolorum repudiandae alias cupiditate sint iste distinctio ut consequuntur ipsum asperiores eum et nobis ipsam deleniti illo provident? Labore magni vero neque beatae voluptatibus nisi totam optio, corporis saepe ipsam maxime veritatis, autem blanditiis unde commodi obcaecati impedit fuga. Id ab velit neque sequi iure incidunt repellendus nihil in voluptatibus esse ducimus exercitationem facere, quisquam inventore blanditiis! Accusantium sint adipisci pariatur at, non, praesentium nobis libero eos quam optio obcaecati similique vel quo iste laborum delectus dolor sequi maiores eum ab autem doloribus totam.and amplifying their impact. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem ea rerum quae facilis facere odit quos, debitis similique beatae incidunt aliquid ex explicabo pariatur.</p>
+                <div class="d-flex justify-content-center">
+                    <a href="https://www.Air.edu/about/" class="btn btn-admission">Air University Islamabad</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" style="background-color: #f8f9fa;">
+        <div class="container text-center mt-5 ">
+            <h1 class="news-title mt-5 p-5">Campus News</h1>
+            <p class="news-subtitle">Stories about people, research, and innovation across the Farm</p>
+            <div class="row row-equal">
+                <div class="col-md-6 mb-4">
+                    <div class="card news-card">
+                        <img alt="People in a field" class="card-img-top" height="400"
+                            src="https://storage.googleapis.com/a1aa/image/n9ibE9pLjFKyPl4A9sHg9bJvNgtbU7PAeFtCHHmWCTCkxa3JA.jpg"
+                            width="600" />
+                        <div class="card-body">
+                            <p class="news-category">Health &amp; Medicine</p>
+                            <p class="news-title-card">Air launches center focused on human and planetary health</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card news-card">
+                        <img alt="Abstract image of a maze" class="card-img-top" height="400"
+                            src="https://storage.googleapis.com/a1aa/image/cmamwCD7GYbbOxtutSQxWmm8Ff1tufc2ZcePRIYRa8wWGrdnA.jpg"
+                            width="600" />
+                        <div class="card-body">
+                            <p class="news-category">Business</p>
+                            <p class="news-title-card">Mapping the maze where the IRS could find billions in unpaid taxes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card news-card">
+                        <img alt="Person in an office with bookshelves" class="card-img-top" height="400"
+                            src="https://storage.googleapis.com/a1aa/image/8sI2HfE9tlRBKKjeSI9HPxl1CzdidnfCDevBIuaePPQ7Ys2dC.jpg"
+                            width="600" />
+                        <div class="card-body">
+                            <p class="news-category">Law</p>
+                            <p class="news-title-card">Nate Persily’s mini museum of election history</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-equal">
+                <div class="col-md-3 mb-4">
+                    <div class="card news-card">
+                        <img alt="Voting booths" class="card-img-top" height="400"
+                            src="https://storage.googleapis.com/a1aa/image/4HHNFAxubPb9Mxw1090rkEHstoWjMIk7G9LbcWk5fsNmxa3JA.jpg"
+                            width="600" />
+                        <div class="card-body">
+                            <p class="news-category">Social Sciences</p>
+                            <p class="news-title-card">Six things political scientists are watching this election</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card news-card">
+                        <img alt="Children in a classroom" class="card-img-top" height="400"
+                            src="https://storage.googleapis.com/a1aa/image/42ek9BWki5WRWS7gr4w11KLzpemc2dHnwyoOLnttFQhGj1uTA.jpg"
+                            width="600" />
+                        <div class="card-body">
+                            <p class="news-category">Education</p>
+                            <p class="news-title-card">Study reveals disparities in Brazilian schools</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card news-card">
+                        <img alt="Art installation in a garden" class="card-img-top" height="400"
+                            src="https://storage.googleapis.com/a1aa/image/pNa59wwKIfX7NKCGAQMWcGomK5zOhl7K2yuXGuHf3j7Jj1uTA.jpg"
+                            width="600" />
+                        <div class="card-body">
+                            <p class="news-category">Arts</p>
+                            <p class="news-title-card">Meyer Green welcomes ‘Amulets’</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center more-news-btn p-5">
+                <button class="btn btn-admission">More Campus News</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5 bg-white" id="academics">
+        <div class="container header" style="text-align: center; margin-top: 20px;">
+            <h1 style="font-size: 2.5rem; font-weight: bold;">Academics</h1>
+            <p style="font-size: 1.25rem; color: #555;">Preparing students to make meaningful contributions to society
+                <br /> as engaged citizens and leaders in a complex world</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="border: none;">
+                    <img alt="Student holding a project in a classroom" height="200"
+                        src="https://storage.googleapis.com/a1aa/image/nrExEv5YLx4GPxF3Uf4Z6CfMLcivn0sh0r0Dll4vgvp1m1uTA.jpg"
+                        style="width: 100%; height: auto;" />
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 1.25rem; font-weight: bold;">Undergraduate Education</h5>
+                        <p class="card-text" style="font-size: 1rem; color: #555;">Rich learning experiences that provide a broad liberal arts foundation and deep subject-area expertise</p>
+                        <a href="#" style="color: #7A1313; text-decoration: none;">Undergraduate Education &gt;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="border: none;">
+                    <img alt="Students working in a laboratory" height="200"
+                        src="https://storage.googleapis.com/a1aa/image/OcJnX9aFOyqLIlfusuhUgemHZ1Ji2cMGijMwnI9Be9BuNrdnA.jpg"
+                        style="width: 100%; height: auto;" />
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 1.25rem; font-weight: bold;">Graduate Education</h5>
+                        <p class="card-text" style="font-size: 1rem; color: #555;"> Unsurpassed opportunities to participate in the advancement of entire fields of knowledge</p>
+                        <a href="#" style="color: #7A1313; text-decoration: none;">Graduate education &gt;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="border: none;">
+                    <img alt="Smiling student in a classroom" height="200"
+                        src="https://storage.googleapis.com/a1aa/image/lIxEwREiQQLJJpU02nuc2k2Il0S9FBviVS9fD4UoWhQbza3JA.jpg"
+                        style="width: 100%; height: auto;" />
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 1.25rem; font-weight: bold;">Driving impact</h5>
+                        <p class="card-text" style="font-size: 1rem; color: #555;">Continuing adult education, executive and professional programs, and programs for K -12 students</p>
+                        <a href="#" style="color: #7A1313; text-decoration: none;">Lifelong Learning &gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="schools" style="text-align: center; margin-top: 30px;">
+            <p style="font-size: 1.25rem; font-weight: bold;">Seven schools in which to pursue your passions</p>
+            <a href="#" style="color: #7A1313; text-decoration: none; margin: 0 10px;">Medicine</a>
+            <a href="#" style="color: #7A1313; text-decoration: none; margin: 0 10px;">Law</a>
+            <a href="#" style="color: #7A1313; text-decoration: none; margin: 0 10px;">Humanities &amp; Sciences</a>
+            <a href="#" style="color: #7A1313; text-decoration: none; margin: 0 10px;">Engineering</a>
+            <a href="#" style="color: #7A1313; text-decoration: none; margin: 0 10px;">Education</a>
+            <a href="#" style="color: #7A1313; text-decoration: none; margin: 0 10px;">Sustainability</a>
+            <a href="#" style="color: #7A1313; text-decoration: none; margin: 0 10px;">Business</a>
+        </div>
+        <a class="btn-more" href="#"
+            style="display: block; width: 200px; margin: 30px auto; background-color: #7A1313; color: #fff; text-align: center; padding: 10px; text-decoration: none; font-size: 1rem; font-weight: bold;">
+            More about academics
+        </a>
+    </section>
+
+    <section style="height: 100vh; width: 100%; position: relative; overflow: hidden; background-color: #f8f9fa;">
+        <div class="container hover-effect text-center" style="height: 100%; width: 100%; position: relative; text-align: center;">
+            <div class="background" style="background: url('https://au.edu.pk/Pages/About/About_Images/visitau.jpg') no-repeat center center fixed; background-size: cover; height: 100%; width: 100%; position: absolute; top: 0; left: 0; transition: filter 0.3s ease;"></div>
+            <div class="quote-container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; display: none; z-index: 1; color: white;">
+                <img alt="Portrait of Tadashi Tokieda" class="author-image" src="https://storage.googleapis.com/a1aa/image/WfWVu1o25k3LaSsLP1zDsXGearAjXVE6KfwrFae5eewyz6u7E.jpg" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 20px;"/>
+                <div class="quote-text" style="font-size: 1.5rem; margin-bottom: 20px; text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px  0 black, 1px 1px 0 black;">
+                    “When I ‘decided’ to become a mathematician, it was not a decision. I could not do otherwise. You don’t decide to fall in love with somebody. It just happens.”
+                </div>
+                <div class="author" style="font-size: 1.2rem; margin-bottom: 10px; text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;">
+                    Tadashi Tokieda
+                    <br/>
+                    Professor (Teaching) of Mathematics
+                </div>
+                <a class="more-link" href="#" style="font-size: 1rem; color: #f8f9fa; text-decoration: none; text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;">
+                    More &gt;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container text-center mt-5" id="research">
+            <h1 class="research-section-title">Research</h1>
+            <p class="research-section-subtitle">Driving discoveries vital to our world, our health, and our intellectual life</p>
+            <div class="research-divider"></div>
+            <div class="row">
+                <div class="col-md-4 research-info-box">
+                    <h3>15 Institutes</h3>
+                    <p>cross disciplinary boundaries</p>
+                </div>
+                <div class="col-md-4 research-info-box">
+                    <h3>20 Libraries</h3>
+                    <p>hold over 12 million items</p>
+                </div>
+                <div class="col-md-4 research-info-box">
+                    <h3>$1.98 Billion</h3>
+                    <p>sponsored research budget</p>
+                </div>
+            </div>
+            <div class="research-divider"></div>
+            <button class="btn research-btn-custom">More about research</button>
+        </div>
+    </section>
+    <section class="container-fluid mt-5" style="background-color: #f8f9fa;" id="events">
+        <div class="events-section mb-4" style="background-color: #f0f0f0; padding: 50px 0; text-align: center;">
+            <h2 style="font-size: 2rem; font-weight: bold; color: #000;">Upcoming Events</h2>
+            <button class="btn mt-5" style="background-color: #7A1313; color: #fff; border: none; padding: 10px 20px; font-size: 1rem;">More about events
+            </button>
+        </div>
+    </section>
+    <section>
+        <div class="container" id="health">
+            <div class="health-section-title">
+                <h1>Health Care</h1>
+                <p>Advancing human health through innovative research, education, and care</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 d-flex">
+                    <div class="health-card">
+                        <img alt="Researchers working in a biomedical lab" class="card-img-top" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/izIQcQB0vTpqMdwe0SetYoiMdTeyKoPJpF8yDfI5AGJ62Z7OB.jpg"
+                            width="300" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="health-card-title">Air Medicine</h5>
+                            <p class="health-card-text">Leading a worldwide revolution in precision health through biomedical research,
+                                education, and clinical enterprises</p>
+                            <a class="health-card-link mt-auto" href="#">Air Medicine &gt;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    < <div class="health-card">
+                        <img alt="Modern health care facility with advanced technology" class="card-img-top"
+                            height="200"
+                            src="https://storage.googleapis.com/a1aa/image/RefdrL2vCeSH6JljzIfqv9SSjTvTymWNLvbcTG5iTX292Z7OB.jpg"
+                            width="300" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="health-card-title">Air Health Care</h5>
+                            <p class="health-card-text">Leveraging expertise and advanced technology to deliver unparalleled care for each
+                                patient's unique needs</p>
+                            <a class="health-card-link mt-auto" href="#">Air Health Care &gt;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="health-card">
+                        <img alt="Health care professionals caring for children" class="card-img-top" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/IH5NRCCq9Y6QDpEu7i3Bspne84xCT0nLMBQ3XVJSZcn2Ob3JA.jpg"
+                            width="300" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="health-card-title">Air Children's Health</h5>
+                            <p class="health-card-text">The only health care network in the Bay Area - and one of the few in the country -
+                                exclusively dedicated to pediatric and obstetric care</p>
+                            <a class="health-card-link mt-auto" href="#">Air Children's Health &gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="health-btn-custom" href="#">More about health care</a>
+        </div>
+    </section>
+
+    <section style="height: 50vh; width: 100%; position: relative; overflow: hidden; background-color: #f8f9fa;">
+        <div class="container-fluid hover-effect text-center" style="height: 100%; width: 100%; position: relative; text-align: center; overflow: hidden;">
+            <div class="background" style="background: url('https://www.stanford.edu/wp-content/uploads/2024/08/yannie-banner-1499x750.png') no-repeat center center fixed; background-size: cover; height: 100%; width: 100%; position: absolute; top: 0; left: 0; transition: filter 0.3s ease;"></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container bg-white mt-5 vh-100" id="life">
+            <div class="health-section-title">
+                <h1>Campus Life</h1>
+                <p>Building a vibrant community of creative and accomplished people from around the world</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 d-flex">
+                    <div class="health-card">
+                        <img alt="Campus life" class="card-img-top" height="200"
+                            src="https://www.stanford.edu/wp-content/uploads/2022/04/Campus-life-1-1499x940.jpg"
+                            width="300" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="health-card-title">Campus Activities</h5>
+                            <p class="health-card-text">Engaging students through various extracurricular activities and events.</p>
+                            <a class="health-card-link mt-auto" href="#">Campus Activities &gt;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="health-card">
+                        <img alt="Modern health care facility with advanced technology" class="card-img-top"
+                            height="200"
+                            src="https://www.stanford.edu/wp-content/uploads/2022/04/Campus-life-2-1499x940.jpg"
+                            width="300" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="health-card-title">Student Organizations</h5>
+                            <p class="health-card-text">Join various student organizations to enhance your university experience.</p>
+                            <a class="health-card-link mt-auto" href="#">Student Organizations &gt;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="health-card">
+                        <img alt="Health care professionals caring for children" class="card-img-top" height="200"
+                            src="https://www.stanford.edu/wp-content/uploads/2022/04/Campus-life-3-1499x940.jpg"
+                            width="300" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="health-card-title">Cultural Events</h5>
+                            <p class="health-card-text">Participate in cultural events that celebrate diversity and inclusion.</p>
+                            <a class="health-card-link mt-auto" href="#">Cultural Events &gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="health-btn-custom" href="#">More about Campus Life</a>
+        </div>
+    </section>
+
+    <section class="admission p-5" id="admission" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="admission-header">
+                <h1 class="text-center">Admission</h1>
+                <p class="text-center">Offering extraordinary freedom to explore, to collaborate, and to challenge yourself</p>
+            </div>
+            <div class="admission-content">
+                <img alt="Group of diverse students walking together on a university campus" height="400"
+                    src="https://storage.googleapis.com/a1aa/image/D6XZX3fQLtTWHCvCeHiYj8e5NCFWQuEHBS89V5ROuQhYFudnA.jpg"
+                    width="800" />
+                <div class="admission-info">
+                    <div>
+                        <h5>Explore the possibilities of an Air education as you map out your college journey.</h5>
+                        <p>We look for distinctive students who exhibit an abundance of energy and curiosity in their classes, activities, projects, research, and lives.</p>
+                    </div>
+                    <div>
+                        <h5>Air meets the full financial need of every admitted undergrad who qualifies for assistance.</h5>
+                        <p>More than two-thirds of undergrads receive some form of financial assistance. Generally, tuition is covered for families with incomes below $150,000.</p>
+                    </div>
+                </div>
+                <button class="btn-admission">More about admission</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <img src="./images/landscape.avif" height="20%" width="100%" />
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 footer-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-apple"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section mt-5" id="about">
+        <div class="container-fluid mt-2 ">
+            <div class="row line">
+                <div class="col-md-2 menu-section">
+                    <h5>SCHOOLS</h5>
+                    <ul>
+                        <li>Business</li>
+                        <li>Education</li>
+                        <li>Engineering</li>
+                        <li>Humanities & Sciences</li>
+                        <li>Law</li>
+                        <li>Medicine</li>
+                        <li>Sustainability</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 menu-section">
+                    <h5>ACADEMICS</h5>
+                    <ul>
+                        <li>Undergraduate Majors</li>
+                        <li>Graduate Programs</li>
+                    </ul>
+                    <h5>RESEARCH</h5>
+                    <ul>
+                        <li>Research Centers A - Z</li>
+                        <li>Libraries</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 menu-section">
+                    <h5>HEALTH CARE</h5>
+                    <ul>
+                        <li>Air Health Care</li>
+                        <li>Air Children's Health</li>
+                    </ul>
+                    <h5>ONLINE LEARNING</h5>
+                    <ul>
+                        <li>Air Online</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 menu-section">
+                    <h5>ABOUT Air</h5>
+                    <ul>
+                        <li>Facts</li>
+                        <li>History</li>
+                        < li>Accreditation</li>
+                        <li>Mission</li>
+                    </ul>
+                    <h5>ADMISSION</h5>
+                    <ul>
+                        <li>Undergraduate</li>
+                        <li>Graduate</li>
+                        <li>Financial Aid</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 menu-section">
+                    <h5>RESOURCES</h5>
+                    <ul>
+                        <li>Campus Map</li>
+                        <li>Community Engagement</li>
+                        <li>Directory</li>
+                        <li>Air Profiles</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 button-section">
+                    <button>Applying</button>
+                    <button>Visiting</button>
+                    <button>Giving</button>
+                    <button>Careers</button>
+                    <button>Faculty Positions</button>
+                    <button>Contact</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="end mt-5">
+            <div class="container">
+                <div class="row w-100">
+                    <div class="col-md-auto">
+                        <h1>Air<br> <span>University</span></h1>
+                    </div>
+                    <div class="col ms-5 mt-3">
+                        <div class="d-flex flex-wrap">
+                            <a href="#">Air Home</a>
+                            <a href="#">Maps & Directions</a>
+                            <a href="#">Search Air</a>
+                            <a href="#">Emergency Info</a>
+                        </div>
+                        <div class="d-flex flex-wrap mt-2">
+                            <a href="#">Terms of Use</a>
+                            <a href="#">Privacy</a>
+                            <a href="#">Copyright</a>
+                            <a href="#">Trademarks</a>
+                            <a href="#">Non-Discrimination</a>
+                            <a href="#">Accessibility</a>
+                        </div>
+                    </div>
+                    <div class="bottom mt-4">
+                        <p>© Air University. Air, California 94305.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var navbar = document.querySelector('.sticky-navbar');
+            var subNavbar = document.querySelector('.sticky-sub-navbar');
+
+            if (window.scrollY > 0) {
+                navbar.style.backgroundColor = '#8C1515';
+                subNavbar.style.backgroundColor = 'white';
+                subNavbar.style.color = 'black';
+
+                var subNavbarLinks = subNavbar.getElementsByTagName('a');
+                for (var i = 0; i < subNavbarLinks.length; i++) {
+                    subNavbarLinks[i].style.color = 'black';
+                }
+            } else {
+                navbar.style.backgroundColor = 'transparent';
+                subNavbar.style.backgroundColor = 'transparent';
+                subNavbar.style.color = 'white';
+
+                var subNavbarLinks = subNavbar.getElementsByTagName('a');
+                for (var i = 0; i < subNavbarLinks.length; i++) {
+                    subNavbarLinks[i].style.color = 'white';
+                }
+            }
+        });
+
+        document.querySelector('.hover-effect').addEventListener('mouseover', function() {
+            document.querySelector('.quote-container').style.display = 'block';
+            document.querySelector('.background').style.filter = 'blur(5px)';
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html> ⬤
